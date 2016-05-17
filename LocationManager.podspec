@@ -34,7 +34,9 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'LocationManager' => ['Pod/Assets/*.png']
   }
-
+  
+  s.ios.deployment_target = '8.0'
+  s.watchos.deployment_target = '2.0'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'PromiseKit', '~> 3.0'
