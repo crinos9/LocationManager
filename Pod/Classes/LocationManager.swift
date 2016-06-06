@@ -109,7 +109,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
     func startUpdatingLocationIfNeeded() {
         if self.locationRequests.count > 0 || self.locationObservers.count > 0 {
             self.askForLocationServicesIfNeeded()
+            #if !os(watchOS)
             self.locationManager.startUpdatingLocation()
+            #else
+            self.locationManager.requestLocation()
+            #endif
         }
         self.updateLocationManagerSettings()
     }
@@ -232,6 +236,10 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
                 fulfillment(status)
             }
         }
+    }
+    
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
     }
     
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
