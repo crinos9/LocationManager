@@ -10,7 +10,7 @@
 import CoreLocation
 import PromiseKit
 
-enum LocationManagerError: ErrorType {
+public enum LocationManagerError: ErrorType {
     case LocationServiceDisabled
     case CannotFetchLocation
 }
