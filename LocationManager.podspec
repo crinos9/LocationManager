@@ -27,17 +27,18 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/thefuntasty/LocationManager.git", :tag => s.version.to_s }
 #s.social_media_url = 'https://twitter.com/thefuntasty'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
+  s.ios.deployment_target = '9.0'
+  s.watchos.deployment_target = '2.0'
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
     'LocationManager' => ['Pod/Assets/*.png']
   }
-  
-  s.ios.deployment_target = '8.0'
-  s.watchos.deployment_target = '2.0'
+
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'PromiseKit', '~> 3.0'
+  s.dependency 'PromiseKit', '~> 4.0'
+
 end
